@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #ffeae3;
+  text-align: center;
+}
+
+* {
+  font-family: "M PLUS Rounded 1c", serif;
+  font-weight: 400;
+}
+
+.message {
+  font-size: 25px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #d9a897;
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #c09587;
+}
