@@ -1,0 +1,213 @@
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e6e6e6;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2c2c2ccc;
+  height: 100px;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+}
+
+.main-nav li {
+  margin: 0 30px;
+}
+
+.main-nav .active {
+  color: #f4ae3d;
+}
+
+.main-nav a {
+  color: #edf3f3;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.main-nav a:hover {
+  color: #f4ae3d;
+}
+
+.company_name {
+  font-size: 55px;
+  font-family: "Alegreya SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main h2 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+  color: #2772e1;
+}
+
+main h3 {
+  margin-left: 40px;
+  font-size: 25px;
+  color: #2c2c2ccc;
+}
+
+.maintenance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.maintenance-table th,
+.maintenance-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.maintenance-table th {
+  background-color: #2772e1;
+  color: white;
+  font-size: 20px;
+}
+
+.maintenance-table td {
+  font-size: 16px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.add-btn {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #2772e1;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #1a56b3;
+}
+
+.form {
+  max-width: 650px;
+  width: 100%;
+  background-color: #eff0f0;
+  padding: 20px;
+  box-shadow: 0px 0px 0px 4px rgba(52, 52, 53, 0.103);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #2772e1;
+  cursor: default;
+}
+
+.label {
+  color: #2772e1;
+  margin-bottom: 4px;
+  font-size: 25px;
+}
+
+.input {
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #4a5568;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px #f4ae3d;
+}
+
+.input:valid {
+  border: 1px solid #2772e1;
+}
+
+.input:invalid {
+  border: 1px solid rgba(14, 14, 14, 0.205);
+}
+
+.submit {
+  background-color: #2c2c2ccc;
+  color: #e6e6e6;
+  border: none;
+  border-radius: 4px;
+  padding: 15px 20px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.submit:hover {
+  background-color: #2772e1;
+}
+
+.action-buttons {
+  margin-left: 40px;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 650px) {
+  .maintenance-table th {
+    font-size: 14px;
+  }
+  .maintenance-table td {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .form {
+    max-width: 450px;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  .form {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .form {
+    max-width: 250px;
+  }
+}
