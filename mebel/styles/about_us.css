@@ -1,0 +1,388 @@
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e0dbd6;
+}
+
+@font-face {
+    font-family: "zago";
+    src: url(fonts/zags.ttf);
+}
+
+a, h1, h2, p, input {
+    font-family: "zago";
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(208, 201, 191);
+    height: 80px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav li {
+    margin-right: 40px;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(100, 73, 42);
+    position: relative;
+}
+
+nav a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px; 
+    background-color:rgb(100, 73, 42); 
+    transition: width 0.5s;
+}
+
+nav a:hover:after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; 
+    background-color:rgb(100, 73, 42);
+    transition: width 0.5s;  
+}
+
+.menu {
+	display: none;
+	width: 1px;
+}
+
+#menu__toggle {
+    opacity: 0;
+  }
+  
+  .menu__btn {
+    display: flex; 
+    align-items: center;  
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 501;
+  }
+  
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(80, 80, 80);
+  }
+  
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  
+  .menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    top: 0;
+    right: 100%;
+    width: 150px;
+    height: 100%;
+    margin: 0px;
+    padding: 100px 10px;
+    list-style: none;
+    text-align: right;
+    background-color: rgb(208, 201, 191);
+    z-index: 500;
+  }
+  
+  .menu__item {
+    display: block;
+    text-align: center;
+    margin-bottom: 60px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color:rgb(100, 73, 42);
+  }
+
+  #menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  
+  #menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  
+  #menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    opacity: 1;
+    right: 0;
+  }
+  
+  .menu li:hover {
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1);
+  }
+  
+  .menu__btn:hover {
+      -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+      transform: scale(1.3);
+  }
+
+.logo {
+    width: 130px;
+    height: 70px;
+}
+
+.icons img {
+    width: 20px;
+    margin-top: 35px;
+}
+
+.icons img:nth-child(1) {
+    margin-right: 25px;
+}
+
+footer {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(192, 192, 192);
+}
+
+.footerContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+}
+
+footer img {
+    width: 180px;
+    margin-top: 50px;
+}
+
+footer h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+footer p {
+    font-size: 25px;
+    color: gray;
+    text-align: center;
+}
+
+footer input {
+    background-color: rgb(192, 192, 192);
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 5px;
+}
+
+.txt {
+    width: 250px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.send {
+    width: 150px;
+    height: 34px;
+}
+
+article {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text_about {
+    text-align: center;
+    width: 50%;
+}
+
+.text_about h1 {
+    font-size: 35px;
+    color: rgb(100, 73, 42);
+}
+
+.text_about p {
+    font-size: 25px;
+    color: rgb(133, 94, 49);
+}
+
+@media screen and (max-width:940px) {
+    .map img {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width:815px) {
+    nav {
+		display: none;
+	}
+
+	.menu {
+		display: unset;
+	}
+
+    .logo {
+        position: relative;
+        right:50px;
+    }
+
+    .icons {
+        position: relative;
+        right:50px;
+    }
+
+    .menu__btn {
+        top: 38px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .text_about h1 {
+        font-size: 30px;
+        color: rgb(100, 73, 42);
+    }
+    
+    .text_about p {
+        font-size: 25px;
+        color: rgb(133, 94, 49);
+    }
+}
+
+@media screen and (max-width:645px) {
+    .map img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .logo {
+        right:20px;
+    }
+
+    .footerContent {
+        width: 400px;
+    }
+    
+    footer img {
+        width: 180px;
+        margin-top: 50px;
+    }
+    
+    footer h1 {
+        font-size: 40px;
+        margin-bottom: 0;
+    }
+    
+    footer p {
+        font-size: 20px;
+    }
+    
+    .txt {
+        width: 200px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    
+    .send {
+        width: 100px;
+        height: 34px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    article {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:460px) { 
+    .footerContent {
+        width: 300px;
+    }
+    
+    footer h1 {
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+    
+    footer p {
+        font-size: 15px;
+    }
+    
+    .txt {
+        width: 300px;
+    }
+    
+    .send {
+        width: 306px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .text_about h1 {
+        font-size: 25px;
+        color: rgb(100, 73, 42);
+    }
+    
+    .text_about p {
+        font-size: 20px;
+        color: rgb(133, 94, 49);
+    }
+}
