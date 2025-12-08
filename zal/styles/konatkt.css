@@ -1,0 +1,703 @@
+html {
+   box-sizing: border-box;
+   font-size: 10px;
+}
+
+@font-face {
+   font-family: "zags";
+   src: url("fonts/zags.ttf");
+   font-weight: normal;
+}
+
+@font-face {
+   font-family: "osnov";
+   src: url("fonts/osnov.ttf");
+   font-weight: normal;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+
+.menu__btn {
+  display: flex; 
+  align-items: center;  
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: whitesmoke;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  text-align: left;
+  background-color: rgba(0, 0, 0, .95);
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: whitesmoke;
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+.menu li {
+   border-bottom: 2px solid darkred;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  transition-duration: .25s;
+}
+
+.menu__box {
+  transition-duration: .25s;
+}
+
+.menu__item {
+  transition-duration: .25s;
+}
+
+.menu {
+   display: none;
+}
+
+.menu a:hover {
+   transform: scale(1.1);
+}
+
+.log img {
+   width: 120px;
+   height: 120px;
+}
+
+a, h1, h2, label  {
+   font-family: "zags";
+}
+
+p {
+   font-family: "osnov";
+}
+
+.prav p {
+   font-family: "zags";
+}
+
+.prav a:hover {
+   color: darkred;
+   transition: 0.2s linear
+}
+
+body {
+   margin: 0;
+   padding: 0;
+}
+
+header {
+   display: flex;
+   background-color: rgba(0, 0, 0, .5);
+   align-items: center;
+   flex-wrap: wrap;
+   justify-content: center;
+   z-index: 500;
+   position: fixed;
+   top: 0;
+   width: 100%;
+}
+
+.nav {
+   display: flex;
+   list-style-type: none;
+}
+
+header p, header a {
+   text-decoration: none;
+   font-size: 18px;
+   color: whitesmoke;
+}
+
+.nav a {
+   position: relative;
+}
+
+.nav a:after {
+   content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  width: 0;
+  height: 3px; 
+  background-color: darkred; 
+  transition: width 0.5s;
+}
+
+.nav a:hover:after {
+   content: "";
+  width: 100%;
+   display: block;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 3px; 
+  background-color: darkred;
+  transition: width 0.5s;  
+}
+
+.logo {
+   margin-right: 150px;
+}
+
+.prav {
+   margin-left: 100px;
+}
+
+.nav li {
+   margin-left: 50px;
+}
+
+.usl {
+   display: inherit;
+   visibility: hidden;
+   position: absolute;
+   opacity: 0;
+   top: 90px;
+   transition: visibility 0s, opacity 0.3s linear;
+   padding: 0;   
+   list-style: none;
+   background-color: rgba(0, 0, 0, .5);
+}
+
+.usl li {
+   margin-left: 0;
+   margin-top: 40px;
+}
+
+.usl li:last-child {
+   margin-bottom: 20px;
+   margin-left: 0;
+}
+
+.usl a {
+   font-size: 15px;
+}
+
+.uslu:hover > .usl {
+   visibility: visible;
+   opacity: 1;
+}
+
+.us {
+   display: inherit;
+   visibility: hidden;
+   position: absolute;
+   opacity: 0;
+   top: 90px;
+   transition: visibility 0s, opacity 0.3s linear;
+   padding: 0;   
+   list-style: none;
+   background-color: rgba(0, 0, 0, .5);
+   width: 90px;
+   height: 140px;
+}
+
+.us li {
+   margin-left: 0;
+   margin-top: 40px;
+}
+
+.us li:last-child {
+   margin-bottom: 20px;
+   margin-left: 0;
+}
+
+.us a {
+   font-size: 15px;
+}
+
+.uss:hover > .us {
+   visibility: visible;
+   opacity: 1;
+}
+
+footer {
+   background-color: black;
+   width: 100%;
+   height: 200px;
+   margin-top: 100px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+footer p {
+   font-size: 20px;
+   color: grey;
+}
+
+footer img {
+   margin-right: 20px;
+}
+
+input {
+   border: 1px solid whitesmoke;
+   background: none;
+   height: 20px;
+   color: whitesmoke;
+}
+
+.shap img {
+   width: 100%;
+}
+
+.shap {
+   width: 100%;
+   height: 600px;
+   overflow: hidden;
+   border-bottom: 5px solid darkred;
+}
+
+.text {
+   color: whitesmoke;
+   position: absolute;
+   top: 400px;
+   left: 200px;
+}
+
+.text h1 {
+   font-size: 55px;
+}
+
+article {
+   display: flex;
+   justify-content: space-around;
+   margin-top: 50px;
+}
+
+.koninf {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.koninf h1 {
+   font-size: 50px;
+}
+
+.koninf h2 {
+   font-size: 30px;
+}
+
+.koninf p {
+   font-size: 30px;
+}
+
+.koninf a {
+   text-decoration: none;
+   color: black;
+}
+
+.koninf a:hover {
+   color: darkred;
+   transition: .2s linear;
+}
+
+.konform {
+   display: flex;
+   flex-direction: column;
+}
+
+.inp { 
+   width: 500px;
+   height: 50px;
+   border: none;
+   border-bottom: 2px solid black;
+   color: black;
+   font-size: 25px;
+}
+
+.lbl {
+   font-size: 30px;
+}
+
+.vopros {
+   width: 500px;
+   height: 100px;
+   border: none;
+   border-bottom: 2px solid black;
+   resize: none;
+   font-size: 20px;
+}
+
+.send {
+   width: 200px;
+   height: 50px;
+   border: 2px solid black;
+   cursor: pointer;
+   font-family: "zags";
+   font-size: 25px;
+   color: black;
+}
+
+.send:hover {
+   color: darkred;
+   border: 2px solid darkred;
+   transition: .2s linear;
+}
+
+@media screen and (max-height: 650px) {
+   .menu__box {
+      overflow-y: scroll;
+   }
+}
+
+@media screen and (max-width: 1325px) {
+   .shap {
+      height: 550px;
+   }
+
+   .logo {
+      margin-right: 60px;
+   }
+
+   .nav li {
+      margin-left: 40px;
+   }
+
+   .usl li {
+   margin-left: 0;
+   }
+
+   .us li {
+   margin-left: 0;
+   }
+}
+
+
+@media screen and (max-width: 1185px) {
+   .logo {
+      margin-right: 30px;
+   }
+
+   .nav li {
+      margin-left: 30px;
+   }
+
+   .prav {
+      margin-left: 60px;
+   }
+
+   .usl li {
+   margin-left: 0;
+   }
+
+   .us li {
+   margin-left: 0;
+   }
+}
+
+@media screen and (max-width: 1085px) {
+   .logo img {
+      width: 90px;
+      height: 90px;
+   }
+
+   .logo {
+      margin-right: 10px;
+   }
+
+   .nav li {
+      margin-left: 30px;
+   }
+
+   .usl {
+   top: 55px;
+   }
+
+   .usl li {
+   margin-left: 0;
+   }
+
+   .usl a {
+   font-size: 12px;
+   }
+
+   .us {
+   top: 55px;
+   }
+
+   .us li {
+   margin-left: 0;
+   }
+
+   .us a {
+   font-size: 12px;
+   }
+
+   .prav {
+      margin-left: 40px;
+   }
+
+   header a, header p {
+      font-size: 15px; 
+   }
+
+   .us {
+   width: 70px;
+   height: 120px;
+   }
+}
+
+@media screen and (max-width: 1035px) {
+   .shap {
+      height: 400px;
+   }
+
+   .text {
+   top: 250px;
+   left: 120px;
+   }
+}
+
+@media screen and (max-width: 1000px) {
+   article {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .konform {
+      margin-top: 50px;
+   }
+}
+
+@media screen and (max-width: 876px) {
+   .nav {
+      display:none;
+   }
+
+   .menu {
+      display: inherit;
+   }
+
+   .logo img {
+      width: 130px;
+      height: 130px;
+   }
+
+   header a, header p {
+      font-size: 18px; 
+   }
+}
+
+@media screen and (max-width: 760px) {
+   .prav img {
+      width: 20px;
+      height: 20px;
+   }
+
+   .shap {
+      height: 300px;
+   }
+
+   .text {
+   top: 160px;
+   left: 80px;
+   }
+}
+
+@media screen and (max-width: 580px) {
+   .shap {
+      height: 250px;
+   }
+
+   .text {
+   top: 120px;
+   left: 60px;
+   }
+}
+
+@media screen and (max-width: 555px) {
+   .logo img {
+      width: 100px;
+      height: 100px;
+   }
+
+   header a, header p {
+      font-size: 15px; 
+   }
+
+   footer {
+      height: auto;
+   }
+
+   .right {
+      margin-bottom: 15px;
+   }
+
+   .inp { 
+   width: 300px;
+   }
+
+   .lbl {
+   font-size: 25px;
+   }
+
+   .vopros {
+   width: 300px;
+   height: 70px;
+   }
+
+   .send {
+   width: 150px;
+   height: 50px;
+   font-size: 20px;
+   }
+
+   .koninf h1 {
+   font-size: 40px;
+   }
+
+   .koninf h2 {
+   font-size: 25px;
+   }
+
+   .koninf p {
+   font-size: 25px;
+   }   
+}
+
+@media screen and (max-width: 525px) {
+   .text h1 {
+      font-size: 45px;
+   }
+
+   .text {
+   top: 140px;
+   left: 40px;
+   } 
+}
+
+@media screen and (max-width: 486px) {
+   .shap {
+      height: 200px;
+   }
+
+   .text {
+   top: 90px;
+   left: 20px;
+   }
+
+   .text h1 {
+      font-size: 40px;
+   }
+}
+
+@media screen and (max-width:475px) {
+   .logo img {
+      width: 80px;
+      height: 80px;
+   }
+}
+
+@media screen and (max-width: 460px) {
+   header a, header p {
+      font-size: 12px; 
+   }
+}
+
+@media screen and (max-width: 400px) {
+   .koninf h1 {
+   font-size: 35px;
+   }
+
+   .koninf h2 {
+   font-size: 20px;
+   }
+
+   .koninf p {
+   font-size: 20px;
+   } 
+}
+
+@media screen and (max-width: 392px) {
+   .menu__btn {
+      width: 20px;
+      height: 18px;
+      right: 10px;
+   }
+
+   .shap {
+      height: 150px;
+   }
+
+   .text {
+   top: 70px;
+   left: 15px;
+   }
+
+   .text h1 {
+   font-size: 35px;
+   }
+}
+
+@media screen and (max-width: 350px) {
+   .koninf h1 {
+   font-size: 30px;
+   }
+}

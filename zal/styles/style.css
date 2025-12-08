@@ -1,0 +1,1206 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+@font-face {
+  font-family: "zags";
+  src: url("fonts/zags.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "osnov";
+  src: url("fonts/osnov.ttf");
+  font-weight: normal;
+}
+
+a,
+h1,
+h2 {
+  font-family: "zags";
+}
+
+p {
+  font-family: "osnov";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header p,
+header a {
+  text-decoration: none;
+  font-size: 18px;
+  color: whitesmoke;
+}
+
+.logo {
+  margin-right: 150px;
+}
+
+.nav {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav li {
+  margin-left: 50px;
+}
+
+.nav a {
+  position: relative;
+}
+
+.nav a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  width: 0;
+  height: 3px;
+  background-color: darkred;
+  transition: width 0.5s;
+}
+
+.nav a:hover:after {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 3px;
+  background-color: darkred;
+  transition: width 0.5s;
+}
+
+.usl {
+  display: inherit;
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  top: 90px;
+  transition: visibility 0s, opacity 0.3s linear;
+  padding: 0;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.usl li {
+  margin-left: 0;
+  margin-top: 40px;
+}
+
+.usl li:last-child {
+  margin-bottom: 20px;
+  margin-left: 0;
+}
+
+.usl a {
+  font-size: 15px;
+}
+
+.uslu:hover > .usl {
+  visibility: visible;
+  opacity: 1;
+}
+
+.us {
+  display: inherit;
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  top: 90px;
+  transition: visibility 0s, opacity 0.3s linear;
+  padding: 0;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 90px;
+  height: 140px;
+}
+
+.us li {
+  margin-left: 0;
+  margin-top: 40px;
+}
+
+.us li:last-child {
+  margin-bottom: 20px;
+  margin-left: 0;
+}
+
+.us a {
+  font-size: 15px;
+}
+
+.uss:hover > .us {
+  visibility: visible;
+  opacity: 1;
+}
+
+.prav p {
+  font-family: "zags";
+}
+
+.prav a:hover {
+  color: darkred;
+  transition: 0.2s linear;
+}
+
+.prav {
+  margin-left: 100px;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: whitesmoke;
+}
+
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: whitesmoke;
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+.menu li {
+  border-bottom: 2px solid darkred;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  transition-duration: 0.25s;
+}
+
+.menu__box {
+  transition-duration: 0.25s;
+}
+
+.menu__item {
+  transition-duration: 0.25s;
+}
+
+.menu {
+  display: none;
+}
+
+.menu a:hover {
+  transform: scale(1.1);
+}
+
+.log img {
+  width: 120px;
+  height: 120px;
+}
+
+.slider {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-bottom: 5px solid darkred;
+}
+
+.navigation {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.bar {
+  width: 30px;
+  height: 8px;
+  margin: 6px;
+  cursor: pointer;
+  background-color: darkred;
+  opacity: 0.5;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+
+.bar:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+input[name="r"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.slides {
+  width: 400%;
+  height: 100%;
+  display: flex;
+}
+
+.slide {
+  width: 25%;
+  transition: all 0.6s ease;
+}
+
+.img {
+  width: 100%;
+}
+
+#r1:checked ~ .s1 {
+  margin-left: 0%;
+}
+
+#r2:checked ~ .s1 {
+  margin-left: -25%;
+}
+
+#r3:checked ~ .s1 {
+  margin-left: -50%;
+}
+
+#r4:checked ~ .s1 {
+  margin-left: -75%;
+}
+
+.text {
+  color: whitesmoke;
+  position: absolute;
+  top: 370px;
+  left: 100px;
+}
+
+.text h1 {
+  font-size: 35px;
+}
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.bol {
+  width: 1000px;
+  height: 600px;
+  border: 2px solid darkred;
+  margin-bottom: 250px;
+}
+
+.bol.us1 {
+  background-image: url("images/1.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bol.us2 {
+  background-image: url("images/2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.in {
+  margin-top: 80px;
+}
+
+.inf p {
+  color: whitesmoke;
+  font-size: 60px;
+  margin: 420px 0 30px 50px;
+}
+
+.inf a {
+  color: red;
+  font-size: 40px;
+  text-decoration: none;
+  margin-left: 50px;
+  position: relative;
+}
+
+.inf a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -125px;
+  bottom: 19px;
+  width: 0;
+  height: 3px;
+  background-color: red;
+  transition: width 0.5s;
+}
+
+.inf a:hover:after {
+  content: "";
+  width: 50%;
+  display: block;
+  position: absolute;
+  left: 250px;
+  bottom: 19px;
+  height: 3px;
+  background-color: red;
+  transition: width 0.5s;
+}
+
+.inf a:before {
+  content: "";
+  transform: rotate(-45deg);
+  border-right: 2px solid red;
+  border-bottom: 2px solid red;
+  position: absolute;
+  left: 360px;
+  bottom: 15px;
+  width: 10px;
+  height: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+
+.inf a:hover:before {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+
+.line.uslu {
+  width: 100%;
+  height: 80px;
+  background-color: darkred;
+  background-image: url(images/gan.png);
+  background-repeat: space;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line a {
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  text-shadow: 10px 10px 20px black;
+}
+
+.line a:hover {
+  transform: scale(1.1);
+}
+
+p {
+  font-size: 45px;
+}
+
+.ab1 {
+  display: flex;
+  margin: 50px;
+  align-items: center;
+  padding: 50px;
+}
+
+.ab1 p {
+  font-size: 50px;
+}
+
+.ab1 a {
+  font-size: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+.ab1 a:hover {
+  color: darkred;
+}
+
+.ab1 p:nth-child(3) {
+  font-size: 25px;
+}
+
+.ab1 img {
+  margin-left: 70px;
+}
+
+.line.kl {
+  width: 100%;
+  height: 80px;
+  background-color: darkred;
+  background-image: url(images/kar.png);
+  background-repeat: space;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line.kl {
+  margin-bottom: 100px;
+}
+
+.onas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 750px;
+}
+
+.bol.onas {
+  background-image: url("images/5.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 750px;
+  height: 400px;
+  margin-bottom: 100px;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+footer {
+  background-color: black;
+  width: 100%;
+  height: 200px;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+footer p {
+  font-size: 20px;
+  color: grey;
+}
+
+footer img {
+  margin-right: 20px;
+}
+
+input {
+  border: 1px solid whitesmoke;
+  background: none;
+  height: 20px;
+  color: whitesmoke;
+}
+
+.str {
+  position: absolute;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (max-height: 650px) {
+  .menu__box {
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 1325px) {
+  .slider {
+    height: 550px;
+  }
+
+  .logo {
+    margin-right: 60px;
+  }
+
+  .nav li {
+    margin-left: 40px;
+  }
+
+  .usl li {
+    margin-left: 0;
+  }
+
+  .us li {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1185px) {
+  .logo {
+    margin-right: 30px;
+  }
+
+  .nav li {
+    margin-left: 30px;
+  }
+
+  .prav {
+    margin-left: 60px;
+  }
+
+  .usl li {
+    margin-left: 0;
+  }
+
+  .us li {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1175px) {
+  .bol.onas {
+    width: 700px;
+  }
+
+  .onas {
+    width: 700px;
+  }
+
+  .bol {
+    width: 950px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .bol.onas {
+    width: 650px;
+  }
+
+  .onas {
+    width: 650px;
+  }
+
+  .bol {
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .slider {
+    height: 500px;
+  }
+
+  .text {
+    color: whitesmoke;
+    position: absolute;
+    top: 330px;
+    left: 70px;
+  }
+
+  .text h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 1085px) {
+  .logo img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .logo {
+    margin-right: 10px;
+  }
+
+  .nav li {
+    margin-left: 30px;
+  }
+
+  .usl {
+    top: 55px;
+  }
+
+  .usl li {
+    margin-left: 0;
+  }
+
+  .usl a {
+    font-size: 12px;
+  }
+
+  .us {
+    top: 55px;
+    width: 70px;
+    height: 120px;
+  }
+
+  .us li {
+    margin-left: 0;
+  }
+
+  .us a {
+    font-size: 12px;
+  }
+
+  .prav {
+    margin-left: 40px;
+  }
+
+  header a,
+  header p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1076px) {
+  .bol.onas {
+    width: 600px;
+    height: 350px;
+  }
+
+  .onas {
+    width: 600px;
+  }
+
+  .onas h2 {
+    font-size: 25px;
+  }
+
+  .bol {
+    width: 850px;
+  }
+}
+
+@media screen and (max-width: 1026px) {
+  .ab1 a {
+    font-size: 45px;
+  }
+
+  .ab1 p {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 977px) {
+  .slider {
+    height: 450px;
+  }
+
+  .text {
+    color: whitesmoke;
+    position: absolute;
+    top: 310px;
+    left: 50px;
+  }
+
+  .text h1 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .ab1 a {
+    font-size: 40px;
+  }
+
+  .ab1 p {
+    font-size: 40px;
+  }
+
+  .bol {
+    width: 800px;
+  }
+
+  p {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 876px) {
+  .slider {
+    height: 400px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menu {
+    display: inherit;
+  }
+
+  .blocks {
+    margin-top: 50px;
+  }
+
+  .logo img {
+    width: 130px;
+    height: 130px;
+  }
+
+  header a,
+  header p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 855px) {
+  .ab1 a {
+    font-size: 35px;
+  }
+
+  .ab1 p {
+    font-size: 35px;
+  }
+
+  .ab1 p:nth-child(3) {
+    font-size: 20px;
+  }
+
+  .ab1 {
+    margin: 0;
+  }
+
+  .bol {
+    width: 700px;
+    height: 500px;
+  }
+
+  p {
+    font-size: 35px;
+  }
+
+  .inf p {
+    margin-top: 350px;
+    margin-left: 30px;
+  }
+
+  .inf a {
+    margin-left: 30px;
+  }
+
+  .in {
+    margin-top: 55px;
+  }
+}
+
+@media screen and (max-width: 803px) {
+  .ab1 {
+    padding: 25px;
+  }
+
+  .ab1 img {
+    width: 300px;
+    height: 172px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .text {
+    color: whitesmoke;
+    position: absolute;
+    top: 260px;
+    left: 50px;
+  }
+
+  .text h1 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ab1 a {
+    font-size: 30px;
+  }
+
+  .ab1 p {
+    font-size: 30px;
+  }
+
+  .bol {
+    width: 600px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .prav img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .slider {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .slider {
+    height: 300px;
+  }
+
+  .text {
+    color: whitesmoke;
+    position: absolute;
+    top: 220px;
+    left: 50px;
+  }
+
+  .text h1 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 677px) {
+  .slider {
+    height: 250px;
+  }
+
+  .text {
+    color: whitesmoke;
+    position: absolute;
+    top: 160px;
+    left: 50px;
+  }
+
+  .text h1 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .text {
+    color: whitesmoke;
+    position: absolute;
+    top: 175px;
+    left: 30px;
+  }
+
+  .text h1 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 652px) {
+  .ab1 {
+    padding: 10px;
+  }
+
+  .ab1 img {
+    width: 250px;
+    height: 143px;
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 633px) {
+  .bol {
+    width: 500px;
+    height: 400px;
+  }
+
+  p {
+    font-size: 30px;
+  }
+
+  .inf p {
+    margin-top: 250px;
+    margin-left: 25px;
+  }
+
+  .inf a {
+    margin-left: 25px;
+  }
+
+  .in {
+    margin-top: 50px;
+  }
+
+  .bol.onas {
+    width: 500px;
+    height: 250px;
+  }
+
+  .onas {
+    width: 500px;
+  }
+
+  .onas h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .ab1 a {
+    font-size: 25px;
+  }
+
+  .ab1 p {
+    font-size: 25px;
+  }
+
+  .bol {
+    width: 400px;
+    height: 300px;
+  }
+
+  .bol.onas {
+    width: 400px;
+    height: 250px;
+  }
+
+  .onas {
+    width: 400px;
+  }
+
+  .inf p {
+    margin-top: 170px;
+    margin-left: 20px;
+    font-size: 45px;
+  }
+
+  .inf a {
+    margin-left: 20px;
+    font-size: 30px;
+  }
+
+  .in {
+    margin-top: 40px;
+    font-size: 25px;
+  }
+
+  .inf a:after {
+    right: -90px;
+    bottom: 14px;
+  }
+
+  .inf a:hover:after {
+    left: 190px;
+    bottom: 14px;
+  }
+
+  .inf a:before {
+    left: 270px;
+    bottom: 10px;
+  }
+
+  .logo img {
+    width: 100px;
+    height: 100px;
+  }
+
+  header a,
+  header p {
+    font-size: 15px;
+  }
+
+  footer {
+    height: auto;
+  }
+
+  .right {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 536px) {
+  .ab1 img {
+    width: 200px;
+    height: 114px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .text {
+    top: 135px;
+    left: 20px;
+  }
+
+  .text h1 {
+    font-size: 13px;
+  }
+
+  .slider {
+    height: 200px;
+  }
+
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 446px) {
+  .ab1 img {
+    width: 170px;
+    height: 97px;
+  }
+
+  .ab1 p {
+    font-size: 20px;
+  }
+
+  .ab1 a {
+    font-size: 20px;
+  }
+
+  .ab1 p:nth-child(3) {
+    font-size: 17px;
+  }
+
+  .bol {
+    width: 350px;
+    height: 250px;
+  }
+
+  .bol.onas {
+    width: 350px;
+    height: 220px;
+  }
+
+  .onas {
+    width: 350px;
+  }
+
+  .onas h2 {
+    font-size: 17px;
+  }
+
+  .inf p {
+    margin-top: 130px;
+  }
+
+  header a,
+  header p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .ab1 img {
+    width: 150px;
+    height: 86px;
+  }
+
+  .bol {
+    width: 300px;
+    height: 220px;
+  }
+
+  .inf a:after {
+    right: -80px;
+  }
+
+  .inf a:hover:after {
+    width: 40%;
+  }
+
+  .inf a:before {
+    left: 250px;
+  }
+
+  .bol.onas {
+    width: 300px;
+    height: 200px;
+  }
+
+  .onas {
+    width: 300px;
+  }
+
+  .inf p {
+    margin-top: 100px;
+  }
+
+  .menu__btn {
+    width: 20px;
+    height: 18px;
+    right: 10px;
+  }
+
+  .line a {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 372px) {
+  .slider {
+    height: 175px;
+  }
+
+  .text {
+    top: 110px;
+  }
+}
+
+@media screen and (max-width: 361px) {
+  .ab1 img {
+    width: 130px;
+    height: 74px;
+  }
+}
