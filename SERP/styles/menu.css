@@ -1,0 +1,1082 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.bellota-text-regular {
+  font-family: "Bellota Text", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("bg.jpg");
+  font-family: "Bellota Text", sans-serif;
+  font-weight: 400;
+  background-size: cover !important;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: "Bellota Text", sans-serif;
+}
+
+/* body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 0.2) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 0, 0, 0.2) 1px, transparent 1px);
+  background-size: 44px 44px;
+  z-index: 2500;
+} */
+
+.menu_box {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+  background-image: url("bg_alt.jpg");
+  height: 150px;
+  border-bottom: rgba(0, 0, 0, 0.65) solid 3px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+.menu_osn {
+  width: 1px;
+}
+
+#menu_toggle {
+  opacity: 0;
+  position: absolute;
+}
+
+.menu_btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 501;
+}
+
+.menu_btn > span,
+.menu_btn > span::before,
+.menu_btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: whitesmoke;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu_btn > span::before {
+  content: "";
+  top: -15px;
+}
+
+.menu_btn > span::after {
+  content: "";
+  top: 15px;
+}
+
+#menu_toggle:checked ~ .menu_btn > span {
+  transform: rotate(45deg);
+}
+
+#menu_toggle:checked ~ .menu_btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu_toggle:checked ~ .menu_btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu_toggle:checked ~ .menu_box {
+  visibility: visible;
+  opacity: 1;
+  right: 0;
+}
+
+.menu_osn ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.left_side li {
+  margin: 90px 50px 0 0;
+}
+
+.right_side li {
+  margin: 90px 0 0 50px;
+}
+
+.osn_men {
+  color: #dadada;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.logo {
+  background-image: url("logo_alt.svg");
+  background-size: cover;
+  width: 130px;
+  height: 130px;
+}
+
+.menu {
+  width: 1px;
+  display: none;
+}
+
+#menu__toggle {
+  opacity: 0;
+  position: absolute;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 501;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: whitesmoke;
+}
+
+.menu__btn > span::before {
+  content: "";
+  top: -15px;
+}
+
+.menu__btn > span::after {
+  content: "";
+  top: 15px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  top: 0;
+  right: 100%;
+  width: 250px;
+  height: 100vh;
+  margin: 0px;
+  padding-top: 150px;
+  list-style: none;
+  text-align: right;
+  background-image: url("/images/menu_adapt.png");
+  z-index: 500;
+}
+
+.menu__item {
+  display: block;
+  text-align: right;
+  padding-right: 40px;
+  margin-bottom: 60px;
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #451800;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  opacity: 1;
+  right: 0;
+}
+
+#btn {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-image: url(btn_img.png);
+  border: none;
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  font-size: 18px;
+  color: #1c0a00;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-weight: bold;
+  opacity: 0.8;
+  background-size: cover;
+  padding: 0;
+  z-index: 300;
+}
+
+#btn:hover {
+  right: -2%;
+}
+
+.food_menu,
+.drink_menu {
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+.food_menu.show,
+.drink_menu.show {
+  opacity: 1;
+}
+
+.food_title {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 70px;
+  color: #c8b396;
+}
+
+.menu_items {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.menu_item {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu_item h2 {
+  font-size: 40px;
+  color: #c8b396;
+  text-align: center;
+}
+
+.menu_item h3 {
+  font-size: 25px;
+  color: #fff;
+}
+
+.menu_item p {
+  font-size: 20px;
+  color: #fff;
+}
+
+.menu_item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.item_1,
+.item_2,
+.item_3,
+.item_4 {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-left: 20px;
+}
+
+.price {
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100px;
+}
+
+.price:hover {
+  padding-left: 20px;
+}
+
+.drink_menu .price:hover {
+  padding-left: 38px;
+}
+
+.drink_menu {
+  width: 100%;
+  display: none;
+}
+
+.drink_menu h1 {
+  text-align: center;
+  font-size: 70px;
+  color: #1c0a00;
+  margin-top: 0;
+}
+
+.limons_cofe_else,
+.koks_cold_pic {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.koks_cold_pic {
+  margin-top: 80px;
+}
+
+.limons_cofe_else table,
+.koks_cold_pic table {
+  width: 500px;
+  border-left: #1c0a00 3px solid;
+}
+.drink_menu th {
+  font-size: 60px;
+  text-align: left;
+  color: #1c0a00;
+}
+
+.drink_menu td {
+  font-size: 35px;
+  color: #1c0a00;
+  font-weight: 600;
+}
+
+.drink_menu .white {
+  color: white;
+  font-size: 25px;
+  padding-left: 20px;
+  font-weight: 400;
+}
+
+.drink_menu .pic {
+  position: relative;
+  position: relative;
+  bottom: 35px;
+  right: 24px;
+}
+
+.drink_menu .pic img {
+  width: 465px;
+}
+
+.empty-cart {
+  color: #fff; /* если фон тёмный */
+  font-size: 16px;
+  padding: 20px;
+}
+
+#cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000; /* ниже сайдбара, но выше остального контента */
+  display: none; /* по умолчанию скрыт */
+}
+
+/* При открытии оверлея */
+#cart-overlay.show {
+  display: block;
+}
+
+.cart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: absolute;
+  top: 55px;
+  left: 20px;
+}
+
+/* Сайдбар-корзина */
+#cart-modal.cart-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px; /* ширина сайдбара на ваше усмотрение */
+  height: 100vh;
+  background-color: #1e1e1e; /* тёмный фон */
+  color: #fff;
+  transform: translateX(-100%); /* изначально скрыт за правым краем */
+  transition: transform 0.3s ease-in-out;
+  z-index: 2001; /* поверх остальных элементов */
+  display: flex;
+  flex-direction: column;
+  /* Убираем display: none; — будем управлять видимостью через transform */
+}
+
+#cart-modal.cart-sidebar.show {
+  transform: translateX(0); /* выезжает справа */
+}
+
+/* Весь контент внутри */
+.cart-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cart-close-btn {
+  position: absolute;
+  top: 34px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+.arrow {
+  cursor: pointer;
+  height: 30px;
+  transform: translateX(-50%) translateY(-50%);
+  transition: transform 0.1s;
+  width: 20px;
+}
+
+.arrow-top,
+.arrow-bottom {
+  background-color: #666;
+  height: 4px;
+  left: -5px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.arrow-top:after,
+.arrow-bottom:after {
+  background-color: #fff;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.15s;
+}
+
+/* Разворачиваем стрелку в противоположную сторону */
+.arrow-top {
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+}
+
+.arrow-bottom {
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+
+/* Корректируем анимацию */
+.arrow-top:after {
+  right: 100%;
+  left: 0;
+  transition-delay: 0s;
+}
+
+.arrow-bottom:after {
+  right: 0;
+  left: 100%;
+  transition-delay: 0.15s;
+}
+
+.arrow:hover .arrow-top:after {
+  right: 0;
+  transition-delay: 0.15s;
+}
+
+.arrow:hover .arrow-bottom:after {
+  left: 0;
+  transition-delay: 0s;
+}
+
+.arrow:active {
+  transform: translateX(-50%) translateY(-50%) scale(0.9);
+}
+
+/* Шапка корзины: "Заказ" и "Цена" */
+.cart-header {
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+  margin-top: 10px; /* чтобы не закрывалось кнопкой */
+  padding: 0 10px; /* небольшие отступы слева и справа */
+}
+
+/* Вертикальная линия по центру */
+.vertical-line {
+  position: absolute;
+  top: 60px; /* чуть ниже шапки */
+  bottom: 155px; /* чуть выше футера */
+  left: 56%;
+  width: 1px;
+  background-color: #444;
+  opacity: 0.8;
+}
+
+/* Контейнер для списка товаров */
+.cart-items {
+  margin-top: 20px;
+  flex: 1; /* чтобы тянулся на всю оставшуюся высоту */
+  overflow-y: auto; /* скролл, если много товаров */
+  position: relative; /* чтобы можно было позиционировать элементы */
+}
+
+/* Строка товара: слева название, справа цена */
+.cart-item {
+  position: relative; /* можно при желании позиционировать отдельно */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 10px; /* отступы от краёв */
+  font-size: 16px;
+}
+
+/* Футер корзины: итого + кнопка */
+.cart-footer {
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 0 10px;
+  align-items: flex-end;
+}
+
+/* Примерно так можно оформить заголовки и тексты */
+.cart-title-left,
+.cart-title-right,
+.total-label,
+.total-amount {
+  font-weight: 600;
+}
+
+/* From Uiverse.io by MuhammadHasann */
+.order-btn {
+  position: relative;
+  padding: 15px 58px;
+  background: #5c493b;
+  font-size: 17px;
+  font-weight: 500;
+  color: #dadada;
+  cursor: pointer;
+  border: 1px solid #5c493b;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+  margin-left: 29px;
+}
+
+.order-btn:hover {
+  border: 1px solid #5c493b;
+  background: linear-gradient(
+    85deg,
+    #614d3e,
+    #695344,
+    #685242,
+    #725a49,
+    #725a48
+  );
+  animation: wind 2s ease-in-out infinite;
+}
+
+@keyframes wind {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  0% {
+    background-position: 50% 100%;
+  }
+
+  0% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  transform-origin: 0 0;
+  transform: rotate(10deg);
+  transition: all 0.5s ease-in-out;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.6));
+}
+
+.order-btn:hover .icon-1 {
+  animation: slay-1 3s cubic-bezier(0.52, 0, 0.58, 1) infinite;
+  transform: rotate(10deg);
+}
+
+@keyframes slay-1 {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+.icon-2 {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 12px;
+  transform-origin: 50% 0;
+  transform: rotate(10deg);
+  transition: all 1s ease-in-out;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.6));
+}
+
+.order-btn:hover .icon-2 {
+  animation: slay-2 3s cubic-bezier(0.52, 0, 0.58, 1) 1s infinite;
+  transform: rotate(0);
+}
+
+@keyframes slay-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.icon-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  transform-origin: 50% 0;
+  transform: rotate(-5deg);
+  transition: all 1s ease-in-out;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.6));
+}
+
+.order-btn:hover .icon-3 {
+  animation: slay-3 2s cubic-bezier(0.52, 0, 0.58, 1) 1s infinite;
+  transform: rotate(0);
+}
+
+@keyframes slay-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  background-color: #323232;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 2000;
+  pointer-events: none;
+  font-size: 25px;
+  text-align: center;
+}
+
+/* Класс для показа уведомления */
+.notification.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Стили для кнопки закрытия уведомления */
+.notification .close-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+/* Дополнительные стили для разных типов уведомлений */
+.notification.success {
+  background-image: url("bg_alt.jpg");
+}
+
+@media screen and (max-width: 1440px) {
+  #btn {
+    right: -8%;
+  }
+
+  #btn:hover {
+    right: -3%;
+  }
+
+  .menu_item h2 {
+    font-size: 35px;
+  }
+
+  .menu_item h3 {
+    font-size: 20px;
+  }
+
+  .menu_item p {
+    font-size: 18px;
+  }
+
+  .menu_item img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 40px;
+  }
+
+  .limons_cofe_else {
+    margin-top: 100px;
+  }
+
+  .limons_cofe_else table,
+  .koks_cold_pic table {
+    width: 400px;
+  }
+
+  .drink_menu th {
+    font-size: 45px;
+    text-align: left;
+    color: #1c0a00;
+  }
+
+  .drink_menu td {
+    font-size: 30px;
+    color: #1c0a00;
+    font-weight: 600;
+  }
+
+  .drink_menu .white {
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+    font-weight: 400;
+  }
+
+  .pic img {
+    width: 400px;
+    height: 300px;
+  }
+
+  .drink_menu .pic {
+    bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #btn {
+    right: -10%;
+  }
+
+  #btn:hover {
+    right: -3%;
+  }
+
+  .menu_items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu_item {
+    width: 450px;
+  }
+
+  .menu_item h2 {
+    font-size: 40px;
+  }
+
+  .menu_item h3 {
+    font-size: 25px;
+  }
+
+  .menu_item p {
+    font-size: 20px;
+  }
+
+  .menu_item img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+
+  .limons_cofe_else {
+    margin-top: 150px;
+  }
+
+  .koks_cold_pic {
+    margin-top: 180px;
+  }
+
+  .limons_cofe_else table,
+  .koks_cold_pic table {
+    width: 300px;
+  }
+
+  .drink_menu th {
+    font-size: 35px;
+    text-align: left;
+    color: #1c0a00;
+  }
+
+  .drink_menu td {
+    font-size: 20px;
+    color: #1c0a00;
+    font-weight: 600;
+  }
+
+  .drink_menu .white {
+    color: white;
+    font-size: 18px;
+    padding-left: 20px;
+    font-weight: 400;
+  }
+
+  .pic img {
+    width: 300px;
+    height: 225px;
+  }
+
+  .drink_menu .pic {
+    bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu_osn {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  #btn {
+    right: -25%;
+  }
+
+  #btn:hover {
+    right: -10%;
+  }
+
+  .limons_cofe_else,
+  .koks_cold_pic {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .limons_cofe_else table,
+  .koks_cold_pic table {
+    width: 450px;
+    margin-bottom: 50px;
+  }
+
+  .drink_menu h1 {
+    margin-top: 100px;
+  }
+
+  .limons_cofe_else {
+    margin-top: 100px;
+  }
+
+  .koks_cold_pic {
+    margin-top: 50px;
+  }
+
+  .drink_menu .pic {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #btn {
+    right: -17%;
+    width: 120px;
+    height: 120px;
+  }
+
+  #btn:hover {
+    right: -4%;
+  }
+
+  .food_title {
+    font-size: 50px;
+  }
+
+  .drink_menu h1 {
+    font-size: 50px;
+    margin-top: 120px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .food_title {
+    font-size: 40px;
+    margin-top: 150px;
+  }
+
+  .menu_item {
+    width: 300px;
+  }
+
+  .menu_item h3 {
+    font-size: 18px;
+  }
+
+  #btn {
+    right: -25%;
+    width: 120px;
+    height: 120px;
+  }
+
+  .limons_cofe_else table,
+  .koks_cold_pic table {
+    width: 300px;
+  }
+
+  .drink_menu th {
+    font-size: 25px;
+    text-align: left;
+    color: #1c0a00;
+  }
+
+  .drink_menu td {
+    font-size: 18px;
+    color: #1c0a00;
+    font-weight: 600;
+  }
+
+  .drink_menu .white {
+    color: white;
+    font-size: 16px;
+    padding-left: 20px;
+    font-weight: 400;
+  }
+
+  .drink_menu .pic {
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #cart-modal.cart-sidebar {
+    width: 300px;
+  }
+
+  .vertical-line {
+    left: 60%;
+  }
+
+  .arrow-top,
+  .arrow-bottom {
+    left: 15px;
+  }
+
+  .cart-item {
+    font-size: 14px;
+  }
+
+  .arrow {
+    height: 25px;
+    width: 15px;
+  }
+
+  .cart-title-right {
+    margin-left: 153px;
+  }
+
+  .order-btn {
+    font-size: 15px;
+  }
+}

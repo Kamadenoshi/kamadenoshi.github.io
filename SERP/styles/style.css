@@ -1,0 +1,314 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.bellota-text-regular {
+  font-family: "Bellota Text", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("bg.jpg");
+  font-family: "Bellota Text", sans-serif;
+  font-weight: 400;
+}
+
+header {
+  background-color: rgba(217, 217, 217, 0.15);
+  height: 150px;
+  border-bottom: rgba(0, 0, 0, 0.65) solid 3px;
+}
+
+.menu_osn {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.menu_osn ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.left_side li {
+  margin: 90px 50px 0 0;
+}
+
+.right_side li {
+  margin: 90px 0 0 50px;
+}
+
+.menu_osn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 130px;
+  height: 130px;
+  margin-top: 10px;
+}
+
+.menu {
+  width: 1px;
+  display: none;
+}
+
+#menu__toggle {
+  opacity: 0;
+  position: absolute;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 501;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: whitesmoke;
+}
+
+.menu__btn > span::before {
+  content: "";
+  top: -15px;
+}
+
+.menu__btn > span::after {
+  content: "";
+  top: 15px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  top: 0;
+  right: 100%;
+  width: 250px;
+  height: 100vh;
+  margin: 0px;
+  padding-top: 150px;
+  list-style: none;
+  text-align: right;
+  background-image: url("/images/menu_adapt.png");
+  z-index: 500;
+}
+
+.menu__item {
+  display: block;
+  text-align: right;
+  padding-right: 40px;
+  margin-bottom: 60px;
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #451800;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  opacity: 1;
+  right: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.left {
+  width: 620px;
+  height: 744px;
+}
+
+.left img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  opacity: 0.65;
+}
+
+.right {
+  width: 930px;
+}
+
+.right h1 {
+  font-size: 60px;
+  color: #c8b396;
+  text-align: center;
+}
+
+.right p {
+  font-size: 40px;
+  text-align: justify;
+  color: #fff;
+}
+
+@media screen and (max-width: 1440px) {
+  .left {
+    width: 550px;
+    height: 650px;
+  }
+
+  .right {
+    width: 700px;
+  }
+
+  .right h1 {
+    font-size: 55px;
+  }
+
+  .right p {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .content {
+    margin-top: 80px;
+  }
+
+  .left {
+    width: 500px;
+    height: 600px;
+  }
+
+  .right {
+    width: 600px;
+  }
+
+  .right h1 {
+    font-size: 55px;
+  }
+
+  .right p {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    margin-top: 120px;
+  }
+
+  .left {
+    width: 400px;
+    height: 480px;
+  }
+
+  .right {
+    width: 480px;
+  }
+
+  .right h1 {
+    font-size: 55px;
+  }
+
+  .right p {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu_osn {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  header {
+    background-color: none;
+    height: 0;
+    border-bottom: none;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left {
+    width: 320px;
+    height: 384px;
+  }
+
+  .right {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .right h1 {
+    font-size: 45px;
+  }
+
+  .right p {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .right {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .right h1 {
+    font-size: 35px;
+  }
+
+  .right p {
+    font-size: 20px;
+  }
+}
