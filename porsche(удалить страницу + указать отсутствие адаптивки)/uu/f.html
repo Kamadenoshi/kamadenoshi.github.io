@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Porsche — Выбор Модели</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        background: linear-gradient(135deg, #111, #1a1a1a);
+        font-family: "Montserrat", sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+      .container {
+        display: flex;
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        padding: 40px;
+        gap: 40px;
+        z-index: 200;
+      }
+      .left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        animation: fadeInLeft 0.8s ease;
+      }
+      .logo {
+        width: 80px;
+        margin-bottom: 20px;
+      }
+
+      .model-select-wrapper {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      .model-header {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        cursor: pointer;
+        user-select: none;
+      }
+      .model-header::after {
+        content: "▾";
+        margin-left: 8px;
+        font-size: 0.8em;
+      }
+
+      .model-list {
+        position: absolute;
+        top: 100%;
+        left: 320px;
+        background: #222;
+        list-style: none;
+        border-radius: 4px;
+        overflow: hidden;
+        display: none;
+        min-width: max-content;
+        z-index: 10;
+      }
+      .model-list.show {
+        display: block;
+      }
+      .model-list li {
+        padding: 8px 12px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .model-list li:hover {
+        background: #333;
+      }
+
+      .price {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+      .info-box {
+        font-size: 1.05rem;
+        line-height: 3.2;
+        margin-bottom: 20px;
+      }
+      .color-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .slider-buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .slider-buttons button {
+        width: 25px;
+        height: 25px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s;
+        position: relative;
+      }
+      .slider-buttons button:hover {
+        transform: scale(1.2);
+      }
+
+      .slider-buttons button.unavailable {
+        pointer-events: none;
+        opacity: 0.6;
+        filter: hue-rotate(-10deg) saturate(1.5);
+      }
+
+      .slider-buttons button.unavailable::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        width: 90%;
+        height: 2px;
+        background-color: rgba(255, 0, 0, 0.7);
+        transform: rotate(-20deg);
+      }
+
+      .order-button {
+        padding: 10px 24px;
+        font-size: 1rem;
+        background: white;
+        color: black;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background 0.2s;
+        align-self: flex-start;
+      }
+      .order-button:hover {
+        background: #ddd;
+      }
+      .right {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeInRight 0.8s ease;
+      }
+      .car-image img {
+        max-width: 100%;
+        max-height: 90%;
+        object-fit: contain;
+        opacity: 1;
+        transition: opacity 0.4s ease;
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .bg-cont {
+        background-image: url("bg-pattern.png");
+        background-size: 3px 3px;
+        background-position: 0 0;
+        background-repeat: repeat;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-cont">
+      <img src="styles/bg-pattern.png" alt="" />
+    </div>
+    <div class="container">
+      <div class="left">
+        <img
+          class="logo"
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Porsche_logo.svg/1200px-Porsche_logo.svg.png"
+          alt="Porsche Logo"
+        />
+
+        <div class="model-select-wrapper">
+          <div class="model-header" id="model-header">Porsche 911 GT3RS</div>
+          <ul class="model-list" id="model-list">
+            <li data-key="gt3rs">911 GT3RS</li>
+            <li data-key="cayman">718 Cayman</li>
+            <li data-key="taycan">Taycan 4S</li>
+            <li data-key="panamera">Panamera GTS</li>
+          </ul>
+        </div>
+
+        <div>
+          <div id="price" class="price">от 26 000 000 ₽</div>
+          <div id="info-box" class="info-box"></div>
+
+          <div class="color-container">
+            <strong>Цвет:</strong>
+            <div class="slider-buttons"></div>
+          </div>
+
+          <button class="order-button">Оформить</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="car-image">
+          <img id="car-img" src="view1.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const models = {
+        gt3rs: {
+          title: "Porsche 911 GT3RS",
+          price: "от 26 000 000 ₽",
+          info: `
+          <strong>Двигатель:</strong> 4.0 л, 6 цилиндров атмосферный<br>
+          <strong>Мощность:</strong> 525 л.с.<br>
+          <strong>Разгон 0‑100 км/ч:</strong> 3.2 с<br>
+          <strong>Макс. скорость:</strong> 312 км/ч<br>
+          <strong>Трансмиссия:</strong> 7‑ступ. PDK<br>
+          <strong>Привод:</strong> задний<br>
+          <strong>Длина:</strong> 4572 мм<br>
+          <strong>Масса:</strong> 1450 кг<br>
+          <strong>Расход (WLTP):</strong> 13.2 л/100 км
+        `,
+          images: ["black.jpg", "red.jpg", "yellow.jpg"],
+        },
+        cayman: {
+          title: "Porsche 718 Cayman",
+          price: "от 6 300 000 ₽",
+          info: `
+          <strong>Двигатель:</strong> 2.0 л, 4 цилиндра turbo<br>
+          <strong>Мощность:</strong> 300 л.с.<br>
+          <strong>Разгон 0‑100 км/ч:</strong> 4.9 с<br>
+          <strong>Макс. скорость:</strong> 275 км/ч<br>
+          <strong>Трансмиссия:</strong> 7‑ступ. DCT<br>
+          <strong>Привод:</strong> задний<br>
+          <strong>Длина:</strong> 4379 мм<br>
+          <strong>Масса:</strong> 1335 кг
+        `,
+          images: ["718black.png", "718red.png", "718yellow.png"],
+        },
+        taycan: {
+          title: "Porsche Taycan 4S",
+          price: "от 8 500 000 ₽",
+          info: `
+          <strong>Двигатель:</strong> два электромотора<br>
+          <strong>Мощность:</strong> 571 л.с.<br>
+          <strong>Разгон 0‑100 км/ч:</strong> 3.8 с<br>
+          <strong>Макс. скорость:</strong> 250 км/ч<br>
+          <strong>Привод:</strong> полный<br>
+          <strong>Длина:</strong> 4963 мм<br>
+          <strong>Масса:</strong> 2200 кг
+        `,
+          images: ["taycanblack.jpg", "taycanred.jpg"],
+        },
+        panamera: {
+          title: "Porsche Panamera GTS",
+          price: "от 10 200 000 ₽",
+          info: `
+          <strong>Двигатель:</strong> 2.9 л V6 biturbo<br>
+          <strong>Мощность:</strong> 480 л.с.<br>
+          <strong>Разгон 0‑100 км/ч:</strong> 3.7 с<br>
+          <strong>Макс. скорость:</strong> 295 км/ч<br>
+          <strong>Привод:</strong> полный<br>
+          <strong>Длина:</strong> 5049 мм<br>
+          <strong>Масса:</strong> 1875 кг
+        `,
+          images: ["panamerablack.png", "panamerared.png"],
+        },
+      };
+
+      let current = "gt3rs";
+      const header = document.getElementById("model-header");
+      const list = document.getElementById("model-list");
+      const priceEl = document.getElementById("price");
+      const infoBox = document.getElementById("info-box");
+      const carImg = document.getElementById("car-img");
+
+      window.onload = () => selectModel("gt3rs");
+
+      header.addEventListener("click", (e) => {
+        e.stopPropagation();
+        list.classList.toggle("show");
+      });
+      list.addEventListener("click", (e) => e.stopPropagation());
+      document.addEventListener("click", () => list.classList.remove("show"));
+
+      function selectModel(key) {
+        current = key;
+        const m = models[key];
+        header.textContent = m.title;
+        priceEl.textContent = m.price;
+        infoBox.innerHTML = m.info;
+        list.classList.remove("show");
+
+        const buttonsContainer = document.querySelector(".slider-buttons");
+        buttonsContainer.innerHTML = "";
+
+        const colors = ["#000", "#c30", "#daa520"];
+        for (let i = 0; i < 3; i++) {
+          const btn = document.createElement("button");
+          btn.style.background = colors[i];
+
+          if (!m.images[i]) {
+            btn.classList.add("unavailable");
+            btn.title = "Цвет недоступен";
+          } else {
+            btn.onclick = () => showSlide(i);
+          }
+
+          buttonsContainer.appendChild(btn);
+        }
+
+        showSlide(0);
+      }
+
+      function showSlide(idx) {
+        carImg.style.opacity = 0;
+        setTimeout(() => {
+          carImg.src = models[current].images[idx];
+          carImg.alt = models[current].title;
+          carImg.style.opacity = 1;
+        }, 300);
+      }
+
+      Array.from(list.children).forEach((li) => {
+        li.addEventListener("click", () => selectModel(li.dataset.key));
+      });
+    </script>
+  </body>
+</html>

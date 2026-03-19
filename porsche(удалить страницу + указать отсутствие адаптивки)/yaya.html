@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слайдер с полоской годов</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles/yaya.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <div class="bg-cont">
+      <img src="styles/bg-pattern.png" alt="" />
+    </div>
+    <header>
+      <div class="menu">
+        <input type="checkbox" id="burger" />
+        <label class="burger" for="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <ul class="menu__box">
+          <li class="menu__item"><a href="index.php">Главная</a></li>
+          <li class="menu__item"><a href="modell.php">Модели</a></li>
+          <li class="menu__item"><a href="market.html">Маркет</a></li>
+          <li class="menu__item"><a href="#">История</a></li>
+          <li class="menu__item"><a href="#">Вход</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide year" data-index="0">
+          <img src="styles/images/history/1875.jpg" alt="1875" />
+          <div class="text">
+            <h1>Фердинанд Порше: первые шаги в мир техники</h1>
+            <p>
+              Фердинанд Порше родился 3 сентября 1875 года в Мафферсдорфе (ныне
+              Вратиславице, Чехия) в семье жестянщика Антона Порше. С юных лет
+              он проявлял интерес к технике, работая в мастерской отца и посещая
+              вечерние занятия в техническом училище в Райхенберге (ныне
+              Либерец, Чехия).
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="1">
+          <img src="styles/images/1875.jpg" alt="1875" />
+          <div class="text">
+            <h1>Инженерный прорыв: электромобиль Порше 1898 года</h1>
+            <p>
+              Первый электромобиль: В 1898 году Порше разработал один из первых
+              электромобилей — Lohner-Porsche. Этот автомобиль имел
+              электромоторы в ступицах передних колёс и мог развивать скорость
+              до 40 км/ч. Однако значительный вес свинцовых аккумуляторов
+              ограничивал запас хода до 80 км.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="2">
+          <img src="styles/images/1900.jpg" alt="1900" />
+          <div class="text">
+            <h1>Энергия двух миров: первый гибридный автомобиль Порше</h1>
+            <p>
+              Гибридная технология начала XX века: В 1900 году Порше представил
+              гибридный автомобиль, сочетавший бензиновый двигатель, вращающий
+              генератор, и электромоторы в колёсах. Это новаторское решение
+              получило признание на Парижской всемирной выставке.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="3">
+          <img src="styles/images/1931.jpg" alt="1931" />
+          <div class="text">
+            <h1>Рождение легенды: создание Dr. Ing. h.c. F. Porsche GmbH</h1>
+            <p>
+              Основание собственного предприятия: В возрасте 51 года, в 1931
+              году, Фердинанд Порше основал собственное конструкторское бюро Dr.
+              Ing. h.c. F. Porsche GmbH в Штутгарте. До этого он работал в
+              компаниях Austro-Daimler и Daimler-Benz, где участвовал в создании
+              успешных гоночных автомобилей
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="4">
+          <img src="styles/images/1939.jpg" alt="1939" />
+          <div class="text">
+            <h1>Рождение культового бренда</h1>
+            <p>
+              Первый автомобиль под брендом Porsche: В 1939 году был создан
+              первый автомобиль под маркой Porsche — Porsche 64. Для его
+              постройки использовались компоненты от Volkswagen Käfer.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="5">
+          <img src="styles/images/1948.jpg" alt="1948" />
+          <div class="text">
+            <h1>Из руин к успеху: становление бренда Porsche</h1>
+            <p>
+              Послевоенное возрождение: После Второй мировой войны, несмотря на
+              арест и заключение Фердинанда Порше, его сын Ферри Порше продолжил
+              дело отца. В 1948 году был представлен Porsche 356 — первый
+              серийный автомобиль компании, который заложил основу для будущих
+              успехов бренда.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="6">
+          <img src="styles/images/1963.jpg" alt="1963" />
+          <div class="text">
+            <h1>Дизайн, ставший вечным: появление Porsche 911</h1>
+            <p>
+              Дизайн Porsche 911: Легендарная модель Porsche 911, представленная
+              в 1963 году, была разработана Фердинандом Александром "Бутци"
+              Порше, внуком основателя. Изначально модель носила индекс 901, но
+              из-за претензий Peugeot, уже использовавшей ноль в середине
+              трёхзначных индексов, название было изменено на 911.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="7">
+          <img src="styles/images/1998.jpg" alt="1998" />
+          <div class="text">
+            <h1>
+              Последние дыхания классики: конец эпохи воздушных двигателей
+            </h1>
+            <p>
+              Воздушное охлаждение двигателей: До 1998 года Porsche использовала
+              двигатели с воздушным охлаждением в своих моделях, включая 911
+              Turbo S с мощностью 450 л.с. Переход на жидкостное охлаждение был
+              обусловлен ужесточением экологических и шумовых норм.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="8">
+          <img src="styles/images/2002.jpg" alt="2002" />
+          <div class="text">
+            <h1>Porsche выходит за рамки спорта: запуск модели Cayenne</h1>
+            <p>
+              Porsche представляет свой первый внедорожник — Cayenne,
+              разработанный совместно с Volkswagen и во многом аналогичный
+              Volkswagen Touareg. Для его выпуска компания построила новый завод
+              в Лейпциге
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="9">
+          <img src="styles/images/2004.jpg" alt="2004" />
+          <div class="text">
+            <h1>Дебют Carrera GT — скорость, мощность, совершенство</h1>
+            <p>
+              Дебют модели Carrera GT — суперкара с 5,7-литровым V10 двигателем
+              мощностью 612 л.с., способного разгоняться до 100 км/ч менее чем
+              за 4 секунды
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="10">
+          <img src="styles/images/2005.jpg" alt="2005" />
+          <div class="text">
+            <h1>Porsche Cayman: новое слово в спортивных купе</h1>
+            <p>
+              Запуск производства купе Cayman, основанного на платформе Boxster,
+              но с жёсткой крышей и улучшенными динамическими характеристиками.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="11">
+          <img src="styles/images/2009.jpg" alt="2009" />
+          <div class="text">
+            <p>
+              Официальное представление четырёхдверного купе Panamera на
+              автосалоне в Шанхае.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="12">
+          <img src="styles/images/2010.jpg" alt="2010" />
+          <div class="text">
+            <h1>
+              918 Spyder: как Porsche переписывает правила гибридного суперкара
+            </h1>
+            <p>
+              Porsche демонстрирует концепт гибридного суперкара 918 Spyder,
+              который сочетает 4,6-литровый V8 двигатель с двумя
+              электромоторами, общей мощностью 887 л.с.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="13">
+          <img src="styles/images/2015.jpg" alt="2015" />
+          <div class="text">
+            <h1>
+              Mission E: концепт, который определит будущее электроспорта
+              Porsche
+            </h1>
+            <p>
+              Porsche представляет концепт полностью электрического спортивного
+              седана Mission E, предвосхищая будущее электромобилей марки.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="14">
+          <img src="styles/images/2019.jpg" alt="2019" />
+          <div class="text">
+            <h1>
+              Taycan: Porsche открывает новую эру с серийным электрическим
+              спорткаром
+            </h1>
+            <p>
+              Начало производства серийной версии Mission E под названием Taycan
+              — первого полностью электрического автомобиля Porsche,
+              предлагающего впечатляющую динамику и инновационные технологии.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="15">
+          <img src="styles/images/2022.jpeg" alt="2022" />
+          <div class="text">
+            <h1>
+              Volkswagen и Porsche: IPO на 75 миллиардов евро, второе по
+              величине в Германии
+            </h1>
+            <p>
+              Volkswagen AG проводит первичное размещение акций Porsche AG,
+              оценив компанию в 75 млрд евро. Это стало вторым крупнейшим IPO в
+              истории Германии.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide" data-index="16">
+          <img src="styles/images/2023.jpg" alt="2023" />
+          <div class="text">
+            <h1>
+              Porsche на пути к будущему: новые электрические модели и прорыв в
+              автономном вождении
+            </h1>
+            <p>
+              Porsche продолжает расширять линейку электрических и гибридных
+              моделей, а также инвестирует в развитие технологий автономного
+              вождения и цифровых сервисов.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline">
+        <div class="timeline-item" data-slide="0">1875</div>
+        <div class="timeline-item" data-slide="1">1898</div>
+        <div class="timeline-item" data-slide="2">1900</div>
+        <div class="timeline-item" data-slide="3">1931</div>
+        <div class="timeline-item" data-slide="4">1939</div>
+        <div class="timeline-item" data-slide="5">1948</div>
+        <div class="timeline-item" data-slide="6">1963</div>
+        <div class="timeline-item" data-slide="7">1998</div>
+        <div class="timeline-item" data-slide="8">2002</div>
+        <div class="timeline-item" data-slide="9">2004</div>
+        <div class="timeline-item" data-slide="10">2005</div>
+        <div class="timeline-item" data-slide="11">2009</div>
+        <div class="timeline-item" data-slide="12">2010</div>
+        <div class="timeline-item" data-slide="13">2015</div>
+        <div class="timeline-item" data-slide="14">2019</div>
+        <div class="timeline-item" data-slide="15">2022</div>
+        <div class="timeline-item" data-slide="16">2023</div>
+      </div>
+    </div>
+
+    <div class="timeline-line"><span class="line"></span></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="yaya.js"></script>
+  </body>
+</html>

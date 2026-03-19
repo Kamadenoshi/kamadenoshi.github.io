@@ -1,0 +1,448 @@
+@font-face {
+  font-family: "Comfortaa-Medium";
+  src: url(fonts/Comfortaa-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Kapakana[wght]";
+  src: url(fonts/Kapakana[wght].woff);
+}
+
+@font-face {
+  font-family: "PoiretOne-Regular";
+  src: url(fonts/PoiretOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: "AnonymousPro-Italic";
+  src: url(fonts/AnonymousPro-Italic.ttf);
+}
+
+@font-face {
+  font-family: "AnonymousPro-Regular";
+  src: url(fonts/AnonymousPro-Regular.ttf);
+}
+
+html {
+  background-color: rgb(29, 29, 29);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PoiretOne-Regular", Arial, sans-serif;
+}
+
+.bg-cont {
+  background-image: url("bg-pattern.png");
+  background-size: 3px 3px;
+  background-position: 0 0;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+  margin-top: 40px;
+}
+
+li a {
+  font-size: 33px;
+  font-weight: 500;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menu {
+  display: block;
+  width: 1px;
+}
+
+.menu__box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  height: 90px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s linear;
+  margin: 0;
+}
+
+.menu__item {
+  display: block;
+  text-align: right;
+  margin-bottom: 60px;
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  z-index: 501;
+  left: 40px;
+  top: 45px;
+}
+
+#burger {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: whitesmoke;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+/* Исправленные селекторы для анимации */
+#burger:checked + label span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+#burger:checked + label span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#burger:checked + label span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 5px;
+}
+
+/* Появление меню */
+#burger:checked ~ .menu__box {
+  visibility: visible;
+  opacity: 1;
+  left: 0;
+}
+
+h1,
+h2 {
+  color: whitesmoke;
+}
+
+p {
+  color: whitesmoke;
+}
+
+.block1 img {
+  width: 800px;
+  height: 530px;
+  border-radius: 20px;
+}
+
+.block1 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 200px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.slides {
+  width: 100%;
+  height: 96vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  scroll-snap-align: start;
+}
+
+.image {
+  display: flex;
+  padding-right: 30px;
+}
+
+.text1 {
+  padding-left: 30px;
+}
+
+.text1 h2 {
+  font-size: 30px;
+}
+
+.text1 h1 {
+  font-size: 40px;
+}
+
+.text1 p {
+  font-size: 25px;
+}
+
+.text ul li {
+  color: whitesmoke;
+  font-size: 20px;
+  font-family: "AnonymousPro-Regular";
+}
+
+.text ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+.text11 {
+  padding-left: 100px;
+  animation: left 1s;
+}
+
+/* Элемент изначально смещён влево и невидим */
+.element-animation {
+  opacity: 0;
+  transform: translateX(-100px); /* смещение с левого края */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* При появлении элемент становится видимым и перемещается в исходное положение */
+.element-animation.element-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Элемент изначально смещён вниз и невидим */
+.element-animation1 {
+  opacity: 0;
+  transform: translateY(100px); /* смещение снизу */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* При появлении элемент становится видимым и перемещается в исходное положение */
+.element-animation1.element-show1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* From Uiverse.io by barisdogansutcu */
+button {
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: hsl(0, 0%, 15%);
+  border: 2px solid hsl(0, 0%, 15%);
+  font-family: inherit;
+  margin-top: 20px;
+  margin-left: -5px;
+}
+
+.default-btn,
+.hover-btn {
+  background-color: hsl(0, 0%, 15%);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.hover-btn {
+  position: absolute;
+  inset: 0;
+  background-color: hsl(0, 0%, 15%);
+  transform: translate(0%, 100%);
+}
+
+.default-btn span {
+  color: hsl(0, 0%, 100%);
+}
+
+.hover-btn span {
+  color: hsl(0, 0%, 100%);
+}
+
+button:hover .default-btn {
+  transform: translate(0%, -100%);
+}
+
+button:hover .hover-btn {
+  transform: translate(0%, 0%);
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal h2 {
+  color: #000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  font-size: 35px;
+}
+
+.modal-content form label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-size: 25px;
+}
+
+.modal-content form input {
+  width: 250px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content form select {
+  width: 270px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content form button {
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.color-picker-form {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+.color-picker-form span {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+.color-picker-form span.active {
+  border: 2px solid #000;
+  box-shadow: 0 0 5px #000;
+}
+
+#order-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#order-form img {
+  width: 400px;
+  height: 242px;
+}
+
+.submit {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .menu__box {
+    flex-direction: column;
+    background-color: rgb(29, 29, 29);
+    height: 100%;
+    width: 300px;
+    z-index: 500;
+  }
+}
